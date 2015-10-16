@@ -19,6 +19,7 @@ class Allocine
         $query_url = $this->_api_url.'/'.$method;
 
         // new algo to build the query
+	date_default_timezone_set('Europe/Paris');
         $sed = date('Ymd');
         $sig = urlencode(base64_encode(sha1($this->_secret_key.http_build_query($params).'&sed='.$sed, true)));
         $query_url .= '?'.http_build_query($params).'&sed='.$sed.'&sig='.$sig;
@@ -51,7 +52,7 @@ class Allocine
         return $response;
     }
 
-    public function get($id)
+    public function movie($id)
     {
         // build the params
         $params = array(
@@ -68,4 +69,37 @@ class Allocine
 
         return $response;
     }
+
+    public function reviewlist($id)
+    {
+        // build the params
+        $params = array(
+            'partner' => $this->_partner_key,
+            'code' => $id,
+            'filter' => 'public',
+            'format' => 'json',
+            'count' => 1000,
+            'page' => 1,
+        );
+
+        // do the request
+        $response = $this->_do_request('reviewlist', $params);
+
+        return $response;
+    }
+
+    public function showtimelist($zip, $radius) {
+        $params = array(
+            'partner' => $this->_partner_key,
+            'zip' => $zip,
+            'radius' => $radius,
+            'format' => 'json',
+        );
+
+        // do the request
+        $response = $this->_do_request('showtimelist', $params);
+
+        return $response;
+    }
+
 }
