@@ -1,0 +1,814 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<base href="http://wiki.gromez.fr/dev/api/allocine_v3"><style type="text/css">body { margin-left:0;margin-right:0;margin-top:0; }#google-cache-hdr {background:#f5f5f5 !important;font:13px arial,sans-serif !important;text-align:left !important;color:#202020 !important;border:0 !important;margin:0 !important;border-bottom:1px solid #cecece !important;line-height:16px !important ;padding:16px 28px 24px 28px !important;}#google-cache-hdr * {display:inline !important;font:inherit !important;text-align:inherit !important;color:inherit !important;line-height:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;letter-spacing:0 !important;}#google-cache-hdr a {text-decoration:none !important;color:#1a0dab !important;}#google-cache-hdr a:hover { text-decoration:underline !important; }#google-cache-hdr a:visited { color:#609 !important; }#google-cache-hdr div { display:block !important;margin-top:4px !important; }#google-cache-hdr b {font-weight:bold !important;display:inline-block !important;direction:ltr !important;}</style><div id="google-cache-hdr"  dir=ltr><div>Ceci est le cache Google de <a href="http://wiki.gromez.fr/dev/api/allocine_v3" dir="ltr">http://wiki.gromez.fr/dev/api/allocine_v3</a>. Il s&#39;agit d&#39;un instantané de la page telle qu&#39;elle était affichée le 15 oct. 2015 06:19:58 GMT. </div><div>La <a href="http://wiki.gromez.fr/dev/api/allocine_v3" dir="ltr">page actuelle</a> peut avoir changé depuis cette date. <a href="http://support.google.com/websearch/bin/answer.py?hl=fr&amp;p=cached&amp;answer=1687222">En savoir plus</a></div><div></div><div><span style="display:inline-block !important;margin-top:8px !important;margin-right:104px !important;white-space:nowrap !important;"><span style="margin-right:28px !important;"><a href="http://webcache.googleusercontent.com/search?q=cache:5p3EvU7ylQAJ:wiki.gromez.fr/dev/api/allocine_v3&amp;hl=fr&amp;gl=fr&amp;prmd=ivns&strip=0&vwsrc=0">Version intégrale</a></span><span style="margin-right:28px !important;"><span style="font-weight:bold !important;">Version en texte seul</span></span><span style="margin-right:28px !important;"><a href="http://webcache.googleusercontent.com/search?q=cache:5p3EvU7ylQAJ:wiki.gromez.fr/dev/api/allocine_v3&amp;hl=fr&amp;gl=fr&amp;prmd=ivns&strip=0&vwsrc=1">Afficher la source</a></span></span><span style="display:inline-block !important;margin-top:8px !important;color:#717171 !important;">Astuce : Pour trouver rapidement votre terme de recherche sur cette page, appuyez sur <b>Ctrl+F</b> ou sur <b>⌘+F</b> (Mac), puis utilisez la barre de recherche.</span></div></div><div style="position:relative;margin:8px;">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr"
+ lang="fr" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="google-site-verification" content="7XsRmSu7uEt77sNF242-uiX97N7oOubEHbRjCPwL-oY" />
+  <title>GroWiki - API AlloCiné v3</title>
+
+  <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="date" content="2013-08-12T22:33:56+0200"/>
+<meta name="keywords" content="dev,api,allocine_v3,allocine,api,film,films,movie,movies,search,recherche,xml,json,movielist,api.allocine.fr,webservice,webservices,web,service,série,séries,tv,show,tvshow"/>
+<meta name="description" content="Informations  AlloCiné a mis à jour il y a quelques temps ses APIs.  Je vais tenter de les expliquer sur cette nouvelle page.  Pour les découvrir, j'ai utilisé le même principe que la première fois.  Une petite différence est à noter, il semblerait que la valeur partner a changé depuis. Sa valeur sera désormais QUNXZWItQWxsb0Npbuk."/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body>
+<div class="dokuwiki">
+
+    <div id="tpl_simple_navi" align="right"></div>
+    <div class="stylehead">
+    <b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b>
+      <div class="breadcrumbs"></div>
+          </div>
+
+    
+
+      <div class="page">
+        <div class="bar" id="bar__top">
+          <div class="logo">
+            <a href="/">GroWiki</a>
+          </div>
+          
+          <!-- GroWiki header -->
+          
+          
+          <!-- Menu -->
+          <div class="menu">
+            <ul>
+<li class="level1"><div class="li"> <a href="/accueil" class="wikilink1" title="accueil">Accueil</a></div>
+</li>
+<li class="level1"><div class="li"> How-To</div>
+<ul>
+<li class="level3"><div class="li"> <a href="/linux/howto/bind9" class="wikilink1" title="linux:howto:bind9">Installation d&#039;un serveur DNS bind9</a></div>
+</li>
+<li class="level3"><div class="li"> <a href="/linux/howto/bitlbee" class="wikilink1" title="linux:howto:bitlbee">Se connecter à MSN/Yahoo/ICQ via un client IRC traditionnel grâce à Bitlbee</a></div>
+</li>
+<li class="level3"><div class="li"> <a href="/linux/howto/ssh_over_proxy" class="wikilink1" title="linux:howto:ssh_over_proxy">Utiliser SSH à travers un proxy</a></div>
+</li>
+<li class="level3"><div class="li"> <a href="/linux/howto/weave_server" class="wikilink1" title="linux:howto:weave_server">Installation d&#039;un serveur Weave</a></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> APIs</div>
+<ul>
+<li class="level3"><div class="li"> <a href="/dev/api/allocine" class="wikilink1" title="dev:api:allocine">API Allociné</a></div>
+</li>
+<li class="level3"><div class="li"> <a href="/dev/api/allocine_v3" class="wikilink1" title="dev:api:allocine_v3">API Allociné v3</a></div>
+</li>
+<li class="level3"><div class="li"> <a href="/dev/api/jeuxvideo.com" class="wikilink1" title="dev:api:jeuxvideo.com">API JeuxVideo.com</a></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="/contact" class="wikilink1" title="contact">Contact</a></div>
+</li>
+</ul>
+          </div>
+        </div>
+        <!-- wikipage start -->
+		<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table des matières</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#api_allocine_v3" class="toc">API AlloCiné v3</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#informations" class="toc">Informations</a></div></li>
+<li class="level2"><div class="li"><a href="#les_apis" class="toc">Les APIs</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#recherche_search" class="toc">Recherche : search</a></div></li>
+<li class="level3"><div class="li"><a href="#informations_sur_un_film_movie" class="toc">Informations sur un film : movie</a></div></li>
+<li class="level3"><div class="li"><a href="#critiques_sur_un_film_presse_et_public_reviewlist" class="toc">Critiques sur un film (presse et public) : reviewlist</a></div></li>
+<li class="level3"><div class="li"><a href="#horaires_des_cinemas_showtimelist" class="toc">Horaires des cinémas : showtimelist</a></div></li>
+<li class="level3"><div class="li"><a href="#informations_sur_une_video_media" class="toc">Informations sur une vidéo : media</a></div></li>
+<li class="level3"><div class="li"><a href="#informations_sur_une_personne_person" class="toc">Informations sur une personne : person</a></div></li>
+<li class="level3"><div class="li"><a href="#filmographie_d_une_personne_filmography" class="toc">Filmographie d&#039;une personne : filmography</a></div></li>
+<li class="level3"><div class="li"><a href="#liste_des_films_en_salle_movielist" class="toc">Liste des films en salle : movielist</a></div></li>
+<li class="level3"><div class="li"><a href="#liste_des_cinemas_theaterlist" class="toc">Liste des cinémas : theaterlist</a></div></li>
+<li class="level3"><div class="li"><a href="#informations_sur_une_serie_tv_tvseries" class="toc">Informations sur une série TV : tvseries</a></div></li>
+<li class="level3"><div class="li"><a href="#informations_sur_la_saison_d_une_serie_tv_season" class="toc">Informations sur la saison d&#039;une série TV : season</a></div></li>
+<li class="level3"><div class="li"><a href="#informations_sur_l_episode_d_une_serie_tv_episode" class="toc">Informations sur l&#039;épisode d&#039;une série TV : episode</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#ils_se_servent_de_l_api" class="toc">Ils se servent de l&#039;API</a></div></li>
+<li class="level2"><div class="li"><a href="#remarques" class="toc">Remarques</a></div></li>
+<li class="level2"><div class="li"><a href="#remerciements" class="toc">Remerciements</a></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="api_allocine_v3" id="api_allocine_v3">API AlloCiné v3</a></h1>
+<div class="level1">
+
+<p>
+
+<div style="padding: 10px 0; width: 700px; font-weight: bold; border: 1px solid #636b70; background-color: #f5f5f5; text-align: center; color: #ff3636;">
+  <p style="margin: 0;">Un nouveau système de signature des appels a été mis en place.</p>
+  <p style="margin: 0;">Un exemple d'utilisation en PHP est dispo sur mon GitHub : <a href="https://github.com/gromez/allocine-api" target="_blank">https://github.com/gromez/allocine-api</a>.</p>
+</div>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="informations" id="informations">Informations</a></h2>
+<div class="level2">
+
+<p>
+<a href="http://www.allocine.fr" class="urlextern" target="_blank" title="http://www.allocine.fr">AlloCiné</a> a mis à jour il y a quelques temps ses APIs.<br/>
+
+Je vais tenter de les expliquer sur cette nouvelle page.
+</p>
+
+<p>
+Pour les découvrir, j&#039;ai utilisé le même principe que <a href="/dev/api/allocine" class="wikilink1" title="dev:api:allocine">la première fois</a>.  Une petite différence est à noter, il semblerait que la valeur partner a changé depuis. Sa valeur sera désormais QUNXZWItQWxsb0Npbuk.
+</p>
+
+<p>
+L&#039;URL de base a, elle aussi, changé : http://api.allocine.fr/rest/v3/
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="les_apis" id="les_apis">Les APIs</a></h2>
+<div class="level2">
+
+<p>
+Les différentes APIs s&#039;appellent toutes en GET. Je n&#039;ai pas testé en POST mais si c&#039;est comme avant, ça ne devrait pas marcher.
+</p>
+
+</div>
+
+<h3 class="sectionedit4"><a name="recherche_search" id="recherche_search">Recherche : search</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/search" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/search">http://api.allocine.fr/rest/v3/search</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> q : chaîne à chercher (chaîne de caractères)</div>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> filter (optionnel) : filtrer selon un type de résultat (énumeration de termes séparés par des virgules)</div>
+<ul>
+<li class="level3"><div class="li"> movie : afficher les films correspondant à la recherche</div>
+</li>
+<li class="level3"><div class="li"> theater : afficher les cinémas</div>
+</li>
+<li class="level3"><div class="li"> person : afficher les acteurs, réalisateurs, etc. (personnes)</div>
+</li>
+<li class="level3"><div class="li"> news : afficher les news</div>
+</li>
+<li class="level3"><div class="li"> tvseries : afficher les séries TV</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> count (optionnel) : nombre de résultats à renvoyer (entier)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemple : <a href="http://api.allocine.fr/rest/v3/search?partner=QUNXZWItQWxsb0Npbuk&amp;filter=movie,theater,person,news,tvseries&amp;count=5&amp;page=1&amp;q=avatar&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/search?partner=QUNXZWItQWxsb0Npbuk&amp;filter=movie,theater,person,news,tvseries&amp;count=5&amp;page=1&amp;q=avatar&amp;format=json">http://api.allocine.fr/rest/v3/search?partner=QUNXZWItQWxsb0Npbuk&amp;filter=movie,theater,person,news,tvseries&amp;count=5&amp;page=1&amp;q=avatar&amp;format=json</a></div>
+<ul>
+<li class="level2"><div class="li"> page (optionnel) : numéro de la page de résultats à afficher (10 résultats par page par défaut)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5"><a name="informations_sur_un_film_movie" id="informations_sur_un_film_movie">Informations sur un film : movie</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/movie" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/movie">http://api.allocine.fr/rest/v3/movie</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant du film (entier)</div>
+</li>
+<li class="level2"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level2"><div class="li"> mediafmt (optionnel) : format vidéo</div>
+<ul>
+<li class="level3"><div class="li"> flv : FLV / H.264</div>
+</li>
+<li class="level3"><div class="li"> mp4-lc : MP4 / H.264 Baseline Profile, Low Complexity, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-hip : H264 High Profile, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-archive : MP4 / H.264 High Profile, for archive</div>
+</li>
+<li class="level3"><div class="li"> mpeg2-theater : MPEG-2 720p</div>
+</li>
+<li class="level3"><div class="li"> mpeg2 : MPEG-2 Main Profile</div>
+</li>
+<li class="level3"><div class="li"> et sûrement d&#039;autres mais je n&#039;ai pas le code correspondant …</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> filter (optionnel) : filtrer selon un type de résultat (énumeration de termes séparés par des virgules)</div>
+<ul>
+<li class="level3"><div class="li"> movie : afficher les films correspondant à la recherche</div>
+</li>
+<li class="level3"><div class="li"> theater : afficher les cinémas</div>
+</li>
+<li class="level3"><div class="li"> person : afficher les acteurs, réalisateurs, etc. (personnes)</div>
+</li>
+<li class="level3"><div class="li"> news : afficher les news</div>
+</li>
+<li class="level3"><div class="li"> tvseries : afficher les séries TV</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> striptags (optionnel) : supprime les tags HTML des paramètres valeurs passées en paramètre</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemple : <a href="http://api.allocine.fr/rest/v3/movie?partner=QUNXZWItQWxsb0Npbuk&amp;code=61282&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=json&amp;filter=movie&amp;striptags=synopsis,synopsisshort" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/movie?partner=QUNXZWItQWxsb0Npbuk&amp;code=61282&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=json&amp;filter=movie&amp;striptags=synopsis,synopsisshort">http://api.allocine.fr/rest/v3/movie?partner=QUNXZWItQWxsb0Npbuk&amp;code=61282&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=json&amp;filter=movie&amp;striptags=synopsis,synopsisshort</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6"><a name="critiques_sur_un_film_presse_et_public_reviewlist" id="critiques_sur_un_film_presse_et_public_reviewlist">Critiques sur un film (presse et public) : reviewlist</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/reviewlist" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/reviewlist">http://api.allocine.fr/rest/v3/reviewlist</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> type : type (valeurs possibles : movie, ???)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant du film (entier)</div>
+</li>
+<li class="level2"><div class="li"> filter : type de critique, presse (desk-press) ou public (public)</div>
+</li>
+<li class="level2"><div class="li"> count (optionnel) : nombre de critiques à renvoyer (entier)</div>
+</li>
+<li class="level2"><div class="li"> page (optionnel) : numéro de la page de résultats à afficher (10 résultats par page par défaut)</div>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemples : </div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;type=movie&amp;code=61282&amp;filter=public&amp;count=30&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;type=movie&amp;code=61282&amp;filter=public&amp;count=30&amp;format=json">http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;type=movie&amp;code=61282&amp;filter=public&amp;count=30&amp;format=json</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;type=movie&amp;filter=desk-press&amp;code=61282&amp;count=30&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;type=movie&amp;filter=desk-press&amp;code=61282&amp;count=30&amp;format=json">http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;type=movie&amp;filter=desk-press&amp;code=61282&amp;count=30&amp;format=json</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+A noter qu&#039;une autre façon de construire la requête existe. Il faut pour cela utiliser le paramètre subject : <a href="http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;filter=public&amp;subject=movie:61282&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;filter=public&amp;subject=movie:61282&amp;format=json">http://api.allocine.fr/rest/v3/reviewlist?partner=QUNXZWItQWxsb0Npbuk&amp;filter=public&amp;subject=movie:61282&amp;format=json</a><br/>
+
+Le reste des paramètres reste inchangé.
+</p>
+
+</div>
+
+<h3 class="sectionedit7"><a name="horaires_des_cinemas_showtimelist" id="horaires_des_cinemas_showtimelist">Horaires des cinémas : showtimelist</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/showtimelist" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/showtimelist">http://api.allocine.fr/rest/v3/showtimelist</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> zip : code postal de la ville</div>
+</li>
+<li class="level2"><div class="li"> lat : coordonnée latitude du cinéma</div>
+</li>
+<li class="level2"><div class="li"> long : coordonnée longitude du cinéma</div>
+</li>
+<li class="level2"><div class="li"> radius : rayon autour du point désigné (entre 1 et 500 km)</div>
+</li>
+<li class="level2"><div class="li"> theaters : liste de codes de cinémas (séparé par une virgule, exemple: P0728,P0093)</div>
+</li>
+<li class="level2"><div class="li"> location : chaîne représentant le cinéma</div>
+</li>
+<li class="level2"><div class="li"> movie (optionnel) : identifiant du film (si non précisé, affiche tous les films)</div>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> date (optionnel) : date au format YYYY-MM-DD (si non précisé, date du jour)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemples :</div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;format=json&amp;radius=50&amp;lat=49.0176394&amp;long=-0.3498428" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;format=json&amp;radius=50&amp;lat=49.0176394&amp;long=-0.3498428">http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;format=json&amp;radius=50&amp;lat=49.0176394&amp;long=-0.3498428</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=xml&amp;theaters=P0728" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=xml&amp;theaters=P0728">http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=xml&amp;theaters=P0728</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=json&amp;location=ugc%20mondeville" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=json&amp;location=ugc%20mondeville">http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=json&amp;location=ugc%20mondeville</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=json&amp;zip=14000" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=json&amp;zip=14000">http://api.allocine.fr/rest/v3/showtimelist?partner=QUNXZWItQWxsb0Npbuk&amp;q=61282&amp;format=json&amp;zip=14000</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8"><a name="informations_sur_une_video_media" id="informations_sur_une_video_media">Informations sur une vidéo : media</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/media" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/media">http://api.allocine.fr/rest/v3/media</a></div>
+</li>
+</ul>
+
+<p>
+* Paramètres
+</p>
+<ul>
+<li class="level1"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant de la vidéo (entier)</div>
+</li>
+<li class="level2"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level2"><div class="li"> mediafmt (optionnel) : format vidéo</div>
+<ul>
+<li class="level3"><div class="li"> flv : FLV / H.264</div>
+</li>
+<li class="level3"><div class="li"> mp4-lc : MP4 / H.264 Baseline Profile, Low Complexity, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-hip : H264 High Profile, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-archive : MP4 / H.264 High Profile, for archive</div>
+</li>
+<li class="level3"><div class="li"> mpeg2-theater : MPEG-2 720p</div>
+</li>
+<li class="level3"><div class="li"> mpeg2 : MPEG-2 Main Profile</div>
+</li>
+<li class="level3"><div class="li"> et sûrement d&#039;autres mais je n&#039;ai pas le code correspondant …</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> Exemples :</div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/media?partner=QUNXZWItQWxsb0Npbuk&amp;code=19135625&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/media?partner=QUNXZWItQWxsb0Npbuk&amp;code=19135625&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=json">http://api.allocine.fr/rest/v3/media?partner=QUNXZWItQWxsb0Npbuk&amp;code=19135625&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=json</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit9"><a name="informations_sur_une_personne_person" id="informations_sur_une_personne_person">Informations sur une personne : person</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/person" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/person">http://api.allocine.fr/rest/v3/person</a></div>
+</li>
+</ul>
+
+<p>
+* Paramètres
+</p>
+<ul>
+<li class="level1"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant de la personne (entier)</div>
+</li>
+<li class="level2"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level2"><div class="li"> mediafmt (optionnel) : format vidéo</div>
+<ul>
+<li class="level3"><div class="li"> flv : FLV / H.264</div>
+</li>
+<li class="level3"><div class="li"> mp4-lc : MP4 / H.264 Baseline Profile, Low Complexity, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-hip : H264 High Profile, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-archive : MP4 / H.264 High Profile, for archive</div>
+</li>
+<li class="level3"><div class="li"> mpeg2-theater : MPEG-2 720p</div>
+</li>
+<li class="level3"><div class="li"> mpeg2 : MPEG-2 Main Profile</div>
+</li>
+<li class="level3"><div class="li"> et sûrement d&#039;autres mais je n&#039;ai pas le code correspondant …</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> filter (optionnel) : filtrer selon un type de résultat (énumeration de termes séparés par des virgules)</div>
+<ul>
+<li class="level3"><div class="li"> movie : afficher les films correspondant à la recherche</div>
+</li>
+<li class="level3"><div class="li"> theater : afficher les cinémas</div>
+</li>
+<li class="level3"><div class="li"> person : afficher les acteurs, réalisateurs, etc. (personnes)</div>
+</li>
+<li class="level3"><div class="li"> news : afficher les news</div>
+</li>
+<li class="level3"><div class="li"> tvseries : afficher les séries TV</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> Exemples :</div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/person?partner=QUNXZWItQWxsb0Npbuk&amp;profile=large&amp;code=41339&amp;mediafmt=mp4-lc&amp;filter=movie&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/person?partner=QUNXZWItQWxsb0Npbuk&amp;profile=large&amp;code=41339&amp;mediafmt=mp4-lc&amp;filter=movie&amp;format=json">http://api.allocine.fr/rest/v3/person?partner=QUNXZWItQWxsb0Npbuk&amp;profile=large&amp;code=41339&amp;mediafmt=mp4-lc&amp;filter=movie&amp;format=json</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit10"><a name="filmographie_d_une_personne_filmography" id="filmographie_d_une_personne_filmography">Filmographie d&#039;une personne : filmography</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/filmography" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/filmography">http://api.allocine.fr/rest/v3/filmography</a></div>
+</li>
+</ul>
+
+<p>
+* Paramètres
+</p>
+<ul>
+<li class="level1"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant de la personne (entier)</div>
+</li>
+<li class="level2"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level2"><div class="li"> filter (optionnel) : filtrer selon un type de résultat (énumeration de termes séparés par des virgules)</div>
+<ul>
+<li class="level3"><div class="li"> movie : afficher les films correspondant à la recherche</div>
+</li>
+<li class="level3"><div class="li"> theater : afficher les cinémas</div>
+</li>
+<li class="level3"><div class="li"> person : afficher les acteurs, réalisateurs, etc. (personnes)</div>
+</li>
+<li class="level3"><div class="li"> news : afficher les news</div>
+</li>
+<li class="level3"><div class="li"> tvseries : afficher les séries TV</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> Exemples :</div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/filmography?partner=QUNXZWItQWxsb0Npbuk&amp;profile=medium&amp;code=41339&amp;filter=movie&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/filmography?partner=QUNXZWItQWxsb0Npbuk&amp;profile=medium&amp;code=41339&amp;filter=movie&amp;format=json">http://api.allocine.fr/rest/v3/filmography?partner=QUNXZWItQWxsb0Npbuk&amp;profile=medium&amp;code=41339&amp;filter=movie&amp;format=json</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit11"><a name="liste_des_films_en_salle_movielist" id="liste_des_films_en_salle_movielist">Liste des films en salle : movielist</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/movielist" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/movielist">http://api.allocine.fr/rest/v3/movielist</a></div>
+</li>
+</ul>
+
+<p>
+* Paramètres
+</p>
+<ul>
+<li class="level1"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant de la personne (entier)</div>
+</li>
+<li class="level2"><div class="li"> count (optionnel) : nombre de films à renvoyer (entier)</div>
+</li>
+<li class="level2"><div class="li"> page (optionnel) : numéro de la page de résultats à afficher (10 résultats par page par défaut)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level4"><div class="li"> filter (optionnel) : filtrer selon un type de résultat (énumeration de termes séparés par des virgules)</div>
+</li>
+<li class="level4"><div class="li"> nowshowing : afficher les films actuellement à l&#039;affiche</div>
+</li>
+<li class="level4"><div class="li"> comingsoon : afficher les films à paraitre</div>
+</li>
+<li class="level4"><div class="li"> order (optionnel) : ordre de tri des résultats</div>
+</li>
+<li class="level4"><div class="li"> datedesc : classement anti-chronologique</div>
+</li>
+<li class="level4"><div class="li"> dateasc : classement chronologique</div>
+</li>
+<li class="level4"><div class="li"> theatercount : classement par nombre de salles</div>
+</li>
+<li class="level4"><div class="li"> toprank : classement par popularité</div>
+</li>
+<li class="level4"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level4"><div class="li"> Exemples :</div>
+</li>
+<li class="level4"><div class="li"> Films en salle triées par nombre de salles : <a href="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=nowshowing&amp;page=1&amp;order=theatercount&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=nowshowing&amp;page=1&amp;order=theatercount&amp;format=json">http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=nowshowing&amp;page=1&amp;order=theatercount&amp;format=json</a></div>
+</li>
+<li class="level4"><div class="li"> Films en salle triées par date de sortie : <a href="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=nowshowing&amp;page=1&amp;order=datedesc&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=nowshowing&amp;page=1&amp;order=datedesc&amp;format=json">http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=nowshowing&amp;page=1&amp;order=datedesc&amp;format=json</a></div>
+</li>
+<li class="level4"><div class="li"> Films à paraitre les plus attendus : <a href="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=comingsoon&amp;page=1&amp;order=toprank&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=comingsoon&amp;page=1&amp;order=toprank&amp;format=json">http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=comingsoon&amp;page=1&amp;order=toprank&amp;format=json</a></div>
+</li>
+<li class="level4"><div class="li"> Films à paraitre triés par date : <a href="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=comingsoon&amp;page=1&amp;order=dateasc&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=comingsoon&amp;page=1&amp;order=dateasc&amp;format=json">http://api.allocine.fr/rest/v3/movielist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;filter=comingsoon&amp;page=1&amp;order=dateasc&amp;format=json</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit12"><a name="liste_des_cinemas_theaterlist" id="liste_des_cinemas_theaterlist">Liste des cinémas : theaterlist</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/theaterlist" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/theaterlist">http://api.allocine.fr/rest/v3/theaterlist</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> zip : code postal de la ville</div>
+</li>
+<li class="level2"><div class="li"> lat : coordonnée latitude du cinéma</div>
+</li>
+<li class="level2"><div class="li"> long : coordonnée longitude du cinéma</div>
+</li>
+<li class="level2"><div class="li"> radius : rayon autour du point désigné (entre 1 et 500 km)</div>
+</li>
+<li class="level2"><div class="li"> theater : code du cinéma (exemple: P0728)</div>
+</li>
+<li class="level2"><div class="li"> location : chaîne représentant le cinéma</div>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemples :</div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/theaterlist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;page=1&amp;lat=49.01716825&amp;long=-0.3499346&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/theaterlist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;page=1&amp;lat=49.01716825&amp;long=-0.3499346&amp;format=json">http://api.allocine.fr/rest/v3/theaterlist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;page=1&amp;lat=49.01716825&amp;long=-0.3499346&amp;format=json</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://api.allocine.fr/rest/v3/theaterlist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;page=1&amp;zip=14000&amp;format=json" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/theaterlist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;page=1&amp;zip=14000&amp;format=json">http://api.allocine.fr/rest/v3/theaterlist?partner=QUNXZWItQWxsb0Npbuk&amp;count=25&amp;page=1&amp;zip=14000&amp;format=json</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit13"><a name="informations_sur_une_serie_tv_tvseries" id="informations_sur_une_serie_tv_tvseries">Informations sur une série TV : tvseries</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/tvseries" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/tvseries">http://api.allocine.fr/rest/v3/tvseries</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant de la série (entier)</div>
+</li>
+<li class="level2"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level2"><div class="li"> mediafmt (optionnel) : format vidéo</div>
+<ul>
+<li class="level3"><div class="li"> flv : FLV / H.264</div>
+</li>
+<li class="level3"><div class="li"> mp4-lc : MP4 / H.264 Baseline Profile, Low Complexity, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-hip : H264 High Profile, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-archive : MP4 / H.264 High Profile, for archive</div>
+</li>
+<li class="level3"><div class="li"> mpeg2-theater : MPEG-2 720p</div>
+</li>
+<li class="level3"><div class="li"> mpeg2 : MPEG-2 Main Profile</div>
+</li>
+<li class="level3"><div class="li"> et sûrement d&#039;autres mais je n&#039;ai pas le code correspondant …</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> striptags (optionnel) : supprime les tags HTML des paramètres valeurs passées en paramètre</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemple : <a href="http://api.allocine.fr/rest/v3/tvseries?partner=QUNXZWItQWxsb0Npbuk&amp;code=223&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/tvseries?partner=QUNXZWItQWxsb0Npbuk&amp;code=223&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort">http://api.allocine.fr/rest/v3/tvseries?partner=QUNXZWItQWxsb0Npbuk&amp;code=223&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit14"><a name="informations_sur_la_saison_d_une_serie_tv_season" id="informations_sur_la_saison_d_une_serie_tv_season">Informations sur la saison d&#039;une série TV : season</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/season" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/season">http://api.allocine.fr/rest/v3/season</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant de la saison (entier)</div>
+</li>
+<li class="level2"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level2"><div class="li"> mediafmt (optionnel) : format vidéo</div>
+<ul>
+<li class="level3"><div class="li"> flv : FLV / H.264</div>
+</li>
+<li class="level3"><div class="li"> mp4-lc : MP4 / H.264 Baseline Profile, Low Complexity, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-hip : H264 High Profile, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-archive : MP4 / H.264 High Profile, for archive</div>
+</li>
+<li class="level3"><div class="li"> mpeg2-theater : MPEG-2 720p</div>
+</li>
+<li class="level3"><div class="li"> mpeg2 : MPEG-2 Main Profile</div>
+</li>
+<li class="level3"><div class="li"> et sûrement d&#039;autres mais je n&#039;ai pas le code correspondant …</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> striptags (optionnel) : supprime les tags HTML des paramètres valeurs passées en paramètre</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemple : <a href="http://api.allocine.fr/rest/v3/season?partner=QUNXZWItQWxsb0Npbuk&amp;code=12277&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/season?partner=QUNXZWItQWxsb0Npbuk&amp;code=12277&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort">http://api.allocine.fr/rest/v3/season?partner=QUNXZWItQWxsb0Npbuk&amp;code=12277&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit15"><a name="informations_sur_l_episode_d_une_serie_tv_episode" id="informations_sur_l_episode_d_une_serie_tv_episode">Informations sur l&#039;épisode d&#039;une série TV : episode</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> URL : <a href="http://api.allocine.fr/rest/v3/episode" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/episode">http://api.allocine.fr/rest/v3/episode</a></div>
+</li>
+<li class="level1"><div class="li"> Paramètres</div>
+<ul>
+<li class="level2"><div class="li"> partner : code partenaire (QUNXZWItQWxsb0Npbuk pour l&#039;application Android)</div>
+</li>
+<li class="level2"><div class="li"> code : identifiant de la saison (entier)</div>
+</li>
+<li class="level2"><div class="li"> profile (optionnel) : degré d&#039;informations renvoyées (valeurs possibles : small, medium, large)</div>
+</li>
+<li class="level2"><div class="li"> mediafmt (optionnel) : format vidéo</div>
+<ul>
+<li class="level3"><div class="li"> flv : FLV / H.264</div>
+</li>
+<li class="level3"><div class="li"> mp4-lc : MP4 / H.264 Baseline Profile, Low Complexity, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-hip : H264 High Profile, with splashscreen</div>
+</li>
+<li class="level3"><div class="li"> mp4-archive : MP4 / H.264 High Profile, for archive</div>
+</li>
+<li class="level3"><div class="li"> mpeg2-theater : MPEG-2 720p</div>
+</li>
+<li class="level3"><div class="li"> mpeg2 : MPEG-2 Main Profile</div>
+</li>
+<li class="level3"><div class="li"> et sûrement d&#039;autres mais je n&#039;ai pas le code correspondant …</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> format (optionnel) : renvoie le résultat au format JSON ou XML (json ou xml)</div>
+</li>
+<li class="level2"><div class="li"> striptags (optionnel) : supprime les tags HTML des paramètres valeurs passées en paramètre</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Exemple : <a href="http://api.allocine.fr/rest/v3/episode?partner=QUNXZWItQWxsb0Npbuk&amp;code=233016&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort" class="urlextern" target="_blank" title="http://api.allocine.fr/rest/v3/episode?partner=QUNXZWItQWxsb0Npbuk&amp;code=233016&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort">http://api.allocine.fr/rest/v3/episode?partner=QUNXZWItQWxsb0Npbuk&amp;code=233016&amp;profile=large&amp;mediafmt=mp4-lc&amp;format=xml&amp;striptags=synopsis,synopsisshort</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit16"><a name="ils_se_servent_de_l_api" id="ils_se_servent_de_l_api">Ils se servent de l&#039;API</a></h2>
+<div class="level2">
+
+<p>
+Si jamais vous tombez sur cette page et que vous vous servez de cette API, je me ferais une joie de lister votre application ici.<br/>
+
+<br/>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> EzTvix : <a href="http://blog.eztvix.info" class="urlextern" target="_blank" title="http://blog.eztvix.info">http://blog.eztvix.info</a></div>
+</li>
+<li class="level1"><div class="li"> Str9am : <a href="http://www.abysscorp.org/project/str9am" class="urlextern" target="_blank" title="http://www.abysscorp.org/project/str9am">http://www.abysscorp.org/project/str9am</a></div>
+</li>
+<li class="level1"><div class="li"> Ma filmothèque : <a href="http://ma-filmotheque.fr" class="urlextern" target="_blank" title="http://ma-filmotheque.fr">http://ma-filmotheque.fr</a></div>
+</li>
+<li class="level1"><div class="li"> WebMovieManager : <a href="http://sourceforge.net/projects/webmoviemanager/" class="urlextern" target="_blank" title="http://sourceforge.net/projects/webmoviemanager/">http://sourceforge.net/projects/webmoviemanager/</a></div>
+</li>
+<li class="level1"><div class="li"> AlloWMC : <a href="https://sites.google.com/site/allowmc/home" class="urlextern" target="_blank" title="https://sites.google.com/site/allowmc/home">https://sites.google.com/site/allowmc/home</a></div>
+</li>
+<li class="level1"><div class="li"> Lib Ruby : <a href="https://rubygems.org/gems/allocine_parser" class="urlextern" target="_blank" title="https://rubygems.org/gems/allocine_parser">https://rubygems.org/gems/allocine_parser</a> &amp; <a href="https://github.com/mlamarque/allocine" class="urlextern" target="_blank" title="https://github.com/mlamarque/allocine">https://github.com/mlamarque/allocine</a></div>
+</li>
+<li class="level1"><div class="li"> Lib DotNet : <a href="http://allocineapi.codeplex.com/" class="urlextern" target="_blank" title="http://allocineapi.codeplex.com/">http://allocineapi.codeplex.com/</a></div>
+</li>
+<li class="level1"><div class="li"> Application Android CinéMinute : <a href="https://play.google.com/store/apps/details?id=info.toyonos.cineminute" class="urlextern" target="_blank" title="https://play.google.com/store/apps/details?id=info.toyonos.cineminute">https://play.google.com/store/apps/details?id=info.toyonos.cineminute</a></div>
+</li>
+<li class="level1"><div class="li"> Cinegeek : <a href="http://cinegeek.alwaysdata.net/" class="urlextern" target="_blank" title="http://cinegeek.alwaysdata.net/">http://cinegeek.alwaysdata.net/</a></div>
+</li>
+<li class="level1"><div class="li"> API CoffeeScript : <a href="https://github.com/cedias/AlloCoffee" class="urlextern" target="_blank" title="https://github.com/cedias/AlloCoffee">https://github.com/cedias/AlloCoffee</a></div>
+</li>
+<li class="level1"><div class="li"> Application Android  CinéTime : <a href="https://play.google.com/store/apps/details?id=fr.neamar.cinetime" class="urlextern" target="_blank" title="https://play.google.com/store/apps/details?id=fr.neamar.cinetime">https://play.google.com/store/apps/details?id=fr.neamar.cinetime</a></div>
+</li>
+<li class="level1"><div class="li"> MovieFlow Android : <a href="http://www.movieflow.net/" class="urlextern" target="_blank" title="http://www.movieflow.net/">http://www.movieflow.net/</a></div>
+</li>
+<li class="level1"><div class="li"> Module Node.js : <a href="https://github.com/leeroybrun/node-allocine-api" class="urlextern" target="_blank" title="https://github.com/leeroybrun/node-allocine-api">https://github.com/leeroybrun/node-allocine-api</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit17"><a name="remarques" id="remarques">Remarques</a></h2>
+<div class="level2">
+
+<p>
+Il y a peut-être (sûrement) des oublis, donc si vous trouvez quelque chose qui ne va pas ou alors un nouveau service, contactez moi via le <a href="/contact" class="wikilink1" title="contact">formulaire de contact</a> ou bien directement sur mon mail <a href="mailto:&#x6a;&#x65;&#x72;&#x6f;&#x6d;&#x65;&#x2e;&#x67;&#x72;&#x6f;&#x76;&#x65;&#x6e;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x6a;&#x65;&#x72;&#x6f;&#x6d;&#x65;&#x2e;&#x67;&#x72;&#x6f;&#x76;&#x65;&#x6e;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x6a;&#x65;&#x72;&#x6f;&#x6d;&#x65;&#x2e;&#x67;&#x72;&#x6f;&#x76;&#x65;&#x6e;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit18"><a name="remerciements" id="remerciements">Remerciements</a></h2>
+<div class="level2">
+
+<p>
+Merci à tout ceux qui m&#039;ont contacté pour me signaler des nouveaux services, comme Olivier B. pour m&#039;avoir mis sur la piste pour les séries ;-)
+</p>
+
+</div>
+
+        <!-- wikipage stop -->
+
+        <div class="clearer"></div>
+
+        
+        <div class="stylefoot">
+
+          <div class="meta">
+            <div class="user">
+                          </div>
+	    <!--
+            <div class="doc">
+              dev/api/allocine_v3.txt &middot; Dernière modification: 12/08/2013 22:33 par gromez            </div>
+            -->
+          </div>
+
+          <div class="bar" id="bar__bottom">
+            <div class="bar-left" id="bar__bottomleft">
+              <a href="/dev/api/allocine_v3?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Derniers changements">Derniers changements</a>            </div>
+            <div class="bar-right" id="bar__bottomright">
+              <div class="bar-left" id="bar__topleft">
+                <a href="/dev/api/allocine_v3?do=edit&amp;rev="  class="action source" accesskey="v" rel="nofollow" title="Afficher le texte source">Afficher le texte source</a>              </div>
+                            <a href="/dev/api/allocine_v3?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Anciennes révisions">Anciennes révisions</a>                                          <a href="/dev/api/allocine_v3?do=login&amp;sectok=06faefc5a90ab27696191558ca029925"  class="action login" accesskey="" rel="nofollow" title="Connexion">Connexion</a>            </div>
+            <div class="clearer"></div>
+          </div>
+
+        </div>
+
+    </div>
+
+    <b class="rbottom_inner">
+      <b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b>
+    </b>
+
+    <div class="badges">
+      gentoo powered apache powered dokuwiki powered
+    </div>
+</div>
+
+<div class="no"></div>
+</body>
+</html>
+
