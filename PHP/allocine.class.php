@@ -6,6 +6,7 @@ class Allocine
     private $_partner_key;
     private $_secret_key;
     private $_user_agent = 'Dalvik/1.6.0 (Linux; U; Android 4.2.2; Nexus 4 Build/JDQ39E)';
+    public $debug = False;
 
     public function __construct($partner_key, $secret_key)
     {
@@ -23,6 +24,9 @@ class Allocine
         $sed = date('Ymd');
         $sig = urlencode(base64_encode(sha1($this->_secret_key.http_build_query($params).'&sed='.$sed, true)));
         $query_url .= '?'.http_build_query($params).'&sed='.$sed.'&sig='.$sig;
+
+	if($this->debug === True)
+		printf("DEBUG > query_url:'%s'\n", $query_url);
 
         // do the request
         $ch = curl_init();
@@ -100,6 +104,16 @@ class Allocine
         $response = $this->_do_request('showtimelist', $params);
 
         return $response;
+    }
+
+    public function person($id) {
+	$params = array(
+		'partner' => $this->_partner_key,
+		'code'    => $id,
+		'profile' => "large"
+	);
+	$response = $this->_do_request('person', $params);
+	return($response);
     }
 
 }
