@@ -8,4 +8,6 @@ Based from multiples sources:
 - Sébastien Dabet (@sdabet)
 - Etienne Gauvin (@etienne-gauvin)
 
+Addings some extra-features:
+- getMembers()
 
